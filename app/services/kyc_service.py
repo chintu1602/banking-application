@@ -107,12 +107,33 @@ class KYCService:
 
         docs = kyc_repo.get_by_user_id(db, target_user_id)
         doc_status = KYCDocumentStatus.APPROVED if review_status == KYCStatus.APPROVED else KYCDocumentStatus.REJECTED
+        doc_type_str = "UNKNOWN"
         for doc in docs:
             doc.status = doc_status
             doc.comments = comments
+            if doc.document_type:
+                doc_type_str = doc.document_type.value
             
         db.commit()
         db.refresh(user)
+
+        # Publish the KYC review outcome to Service Bus queue
+        try:
+            from app.services.service_bus_service import publish_kyc_review
+            publish_kyc_review(
+                email=user.email,
+                name=user.full_name,
+                document_type=doc_type_str,
+                status=review_status.value,
+                reason=comments
+            )
+        except Exception as sb_err:
+            import logging
+            logging.getLogger(__name__).error(
+                "Error publishing KYC review status to Service Bus for user %d: %s",
+                user.id, sb_err
+            )
+
         return user
 
     def get_kyc_status(self, db: Session, user: User) -> KYCStatusResponse:

@@ -23,6 +23,10 @@ class Settings(BaseSettings):
     AZURE_STORAGE_CONNECTION_STRING: str = os.getenv("AZURE_STORAGE_CONNECTION_STRING", "")
     AZURE_CONTAINER_NAME: str = os.getenv("AZURE_CONTAINER_NAME", "banking-documents")
 
+    # Azure Service Bus
+    SERVICE_BUS_CONNECTION_STRING: str = os.getenv("SERVICE_BUS_CONNECTION_STRING", "")
+    SERVICE_BUS_QUEUE_NAME: str = os.getenv("SERVICE_BUS_QUEUE_NAME", "kyc-reviews")
+
     model_config = ConfigDict(case_sensitive=True)
 
 settings = Settings()

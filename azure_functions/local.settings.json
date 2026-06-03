@@ -1,0 +1,18 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "AZURE_STORAGE_CONNECTION_STRING": "DefaultEndpointsProtocol=https;AccountName=<your_storage_account_name>;AccountKey=<your_storage_account_key>;EndpointSuffix=core.windows.net",
+    "AZURE_CONTAINER_NAME": "banking-documents",
+    "DOCUMENT_INTELLIGENCE_ENDPOINT": "https://<your_document_intelligence_resource_name>.cognitiveservices.azure.com/",
+    "DOCUMENT_INTELLIGENCE_KEY": "<your_document_intelligence_api_key>",
+    "SERVICE_BUS_CONNECTION_STRING": "Endpoint=sb://<your_service_bus_namespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<your_shared_access_key>",
+    "SERVICE_BUS_QUEUE_NAME": "kyc-reviews",
+    "SMTP_HOST": "",
+    "SMTP_PORT": "587",
+    "SMTP_USER": "",
+    "SMTP_PASS": "",
+    "SMTP_FROM": "kyc-alerts@antigravitybank.com"
+  }
+}

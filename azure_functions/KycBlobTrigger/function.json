@@ -1,0 +1,11 @@
+{
+  "bindings": [
+    {
+      "name": "myBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "banking-documents/{name}",
+      "connection": "AZURE_STORAGE_CONNECTION_STRING"
+    }
+  ]
+}

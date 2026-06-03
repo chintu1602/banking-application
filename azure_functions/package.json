@@ -1,0 +1,16 @@
+{
+  "name": "kyc-document-verification-pipeline",
+  "version": "1.0.0",
+  "description": "Azure Functions Node.js pipeline for KYC document analysis and review notification processing.",
+  "main": "index.js",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "dependencies": {
+    "@azure/ai-form-recognizer": "^4.0.0",
+    "@azure/storage-blob": "^12.12.0",
+    "nodemailer": "^6.9.1"
+  },
+  "devDependencies": {}
+}

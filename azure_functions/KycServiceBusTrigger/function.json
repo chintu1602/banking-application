@@ -1,0 +1,11 @@
+{
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "queueName": "kyc-reviews",
+      "connection": "SERVICE_BUS_CONNECTION_STRING"
+    }
+  ]
+}

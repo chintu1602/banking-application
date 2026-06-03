@@ -15,3 +15,4 @@ jinja2>=3.0.0
 gunicorn>=21.2.0
 email-validator
 pydantic[email]
+azure-servicebus>=7.11.0
